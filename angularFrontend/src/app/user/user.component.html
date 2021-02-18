@@ -1,0 +1,49 @@
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.mail}}</td> 
+                <td>{{user.password}}</td>  
+                <a routerLink="/users/{{user.id}}"><button class="edit">Edit</button> </a>
+            </tr> 
+        </tbody> <br><br>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;margin:auto" >Create</button>
+    </table> <br><br>
+   
+
+    <div id="id01" class="modal">
+    
+    <form class="modal-content animate" #f="ngForm" (submit)="addUser(f)">
+        <div class="container">
+        <label for="uname"><b>FirstName</b></label>
+        <input type="text" placeholder="Enter your firstName" ngModel name="firstName" required>
+        <label for="uname"><b>LastName</b></label>
+        <input type="text" placeholder="Enter your lastName" ngModel name="lastName" required>
+        <label for="uname"><b>Email</b></label>
+        <input type="email" placeholder="Enter your email" ngModel name="mail" required>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter your password" ngModel name="password" required>
+        <button type="submit">Create</button> 
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>    
+    </div>
+    </form>
+    </div>
+
+<script>
+var modal = document.getElementById('id01');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>

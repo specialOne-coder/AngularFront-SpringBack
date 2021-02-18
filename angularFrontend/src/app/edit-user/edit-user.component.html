@@ -1,0 +1,28 @@
+    
+<div class="all" *ngIf="currentUser">
+    <form class="modal-content animate" #f="ngForm">
+        <div class="container">
+        <label for="uname"><b>FirstName</b></label>
+        <input type="text" placeholder="Enter your firstName" [(ngModel)] ="currentUser.firstName" name="firstName" required>
+        <label for="uname"><b>LastName</b></label>
+        <input type="text" placeholder="Enter your lastName" [(ngModel)] ="currentUser.lastName" name="lastName" required>
+        <label for="uname"><b>Email</b></label>
+        <input type="email" placeholder="Enter your email" [(ngModel)] ="currentUser.mail" name="mail" required>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter your password" [(ngModel)] ="currentUser.password" name="password" required>
+        <button 
+        type="submit"
+        (click) = "updateUser()">
+            Update
+        </button> 
+        <button 
+        class="cancelbtn"
+        (click) = "deleteUser()"
+        >
+        Delete
+        </button>
+    </div>
+    
+    </form>
+   
+</div>
